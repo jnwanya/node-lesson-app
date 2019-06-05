@@ -8,8 +8,11 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((request, response, next) => {
     //console.log('This always run.');
@@ -21,7 +24,8 @@ app.use(shopRoutes);
 
 
 app.use((request, response, next) => {
-    response.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    response.render('404', {pageTitle: "Not Found"});
+   // response.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 app.listen(3000);
