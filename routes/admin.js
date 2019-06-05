@@ -9,7 +9,10 @@ const products = [];
 router.get('/add-product',(request, response, next) => {
     // console.log('In a middleware');
     //response.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-    response.render('add-product', {pageTitle: 'Add Product', path: '/admin/add-product'});
+    response.render('add-product', {pageTitle: 'Add Product', path: '/admin/add-product',
+        formCSS: true,
+        productCSS: true,
+        activeProduct: true});
     //let content = '<form action="/product" method="post"><input type="text" name="title" /><button type="submit">Add product</button></form>';
    // response.send(content);
 });
