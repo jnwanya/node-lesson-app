@@ -1,3 +1,9 @@
+/*
+USING TYPESCRIPT IN NODE.JS
+https://scotch.io/tutorials/setting-up-a-node-project-with-typescript
+https://medium.com/javascript-in-plain-english/typescript-with-node-and-express-js-why-when-and-how-eb6bc73edd5d
+ts-node-dev IS NODEMON alternative for typescript
+ */
 //const http = require('http');
 const path = require('path');
 const express = require('express');
