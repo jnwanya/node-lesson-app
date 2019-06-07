@@ -16,8 +16,11 @@ exports.postAddProduct = (request, response, next) => {
     const imageUrl = request.body.imageUrl;
     const price = request.body.price;
     const product = new Product(null, title, imageUrl, description, price);
-    product.save();
-    response.redirect('/');
+    product.save().then(result => {
+        console.log('save result', result);
+        response.redirect('/');
+    }).catch(error => console.log(error));
+
 };
 exports.getProductPage = (request, response, next) => {
     Product.fetchAll(products => {

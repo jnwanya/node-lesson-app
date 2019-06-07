@@ -9,10 +9,18 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const dbConn = require('./util/database');
+
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 const errorController = require('./controllers/error');
+
+/*dbConn.execute('SELECT * FROM product').then((result) => {
+   console.log('database result', result[0], result[1]);
+}).catch(err => {
+    console.log('database', err);
+});*/
 
 const app = express();
 
